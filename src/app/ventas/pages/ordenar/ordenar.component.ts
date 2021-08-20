@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Color, Heroe } from '../../interfaces/ventas.interfaces';
 
 @Component({
   selector: 'app-ordenar',
@@ -8,7 +9,35 @@ import { Component, OnInit } from '@angular/core';
 export class OrdenarComponent implements OnInit {
 
   enMayuscula: boolean = false;
-  products!: [];
+  heroes: Heroe[] = [
+    {
+      nombre: 'Batman',
+      vuela: false,
+      color: Color.negro
+    },
+    {
+      nombre: 'Superman',
+      vuela: true,
+      color: Color.azul
+    },
+    {
+      nombre: 'Robin',
+      vuela: false,
+      color: Color.verde
+    },
+    {
+      nombre: 'Daredevil',
+      vuela: false,
+      color: Color.rojo
+    },
+    {
+      nombre: 'Linterna Verde',
+      vuela: true,
+      color: Color.verde
+    },
+  ];
+
+  ordenarCampoPor: string = '';
 
   constructor() { }
 
@@ -18,6 +47,10 @@ export class OrdenarComponent implements OnInit {
 
   cambiarMayuscula(){
     this.enMayuscula = !this.enMayuscula;
+  }
+
+  cambiarOrden(ordenarPor: string){
+    this.ordenarCampoPor = ordenarPor;
   }
 
 }
